@@ -4,8 +4,6 @@ import {connect} from "react-redux";
 import {deleteNote, editNote, updateNote} from "../util/Redux/actions";
 import del from'../assets/delete.svg'
 import edit from'../assets/pencil.svg'
-// import {addNote} from "../util/Redux/actions"
-
 class ListNote extends Component{
     constructor(props){
         super(props)

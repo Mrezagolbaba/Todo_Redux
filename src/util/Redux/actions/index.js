@@ -22,6 +22,6 @@ export const editNote = (id) => ({
 });
 export const updateNote = (text,id) => ({
     type: UPDATE_NOTE,
-    id: id+1,
+    id: id+4,
     text
 });

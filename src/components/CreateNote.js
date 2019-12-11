@@ -10,20 +10,24 @@ class CreateNote extends Component{
             noteText: '',
         };
         this.onChangeNoteText = this.onChangeNoteText.bind(this)
+        this.OnChangeButton = this.OnChangeButton.bind(this)
     }
 
     onChangeNoteText(e){
         this.setState({
             noteText: e.target.value
-
         })
+    }
+    OnChangeButton(){
+        this.props.addNote(this.state.noteText);
+        this.refs.someName.value = '';
     }
 
     render() {
         return (
             <div className="container__row">
                 <input className="container__col" onChange={this.onChangeNoteText} ref="someName"/>
-                <button className="addButton"  onClick={() =>{ this.props.addNote(this.state.noteText); this.refs.someName.value = '';}}>
+                <button className="addButton"  onClick={this.OnChangeButton }>
                     <p className="textButton">Add Note</p>
                 </button>
             </div>
