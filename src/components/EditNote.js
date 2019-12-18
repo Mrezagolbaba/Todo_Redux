@@ -23,28 +23,22 @@ class EditNote extends Component{
     }
 
     render() {
+        console.log('note',this.props.note.id)
         return (
             <div className="container__row">
-                {this.props.listNote.map((item)=>{
-                    return(
-
-                            <div className="container__CardList" key={item.id} >
-                                <div>
-                                    <input className={'container__CardList__textEdit'} defaultValue={item.text} onChange={(e)=>this.updateInput(e,item.id)}/>
+              <div className="container__CardList" key={this.props.note.id} >
+                  <div>
+                                    <input className={'container__CardList__textEdit'} defaultValue={this.props.note.text} onChange={(e)=>this.updateInput(e,this.props.note.id)}/>
                                 </div>
-                                <div>
-                                    <button className="container__CardList__Button" onClick={() => this.props.deleteNote(item.id)} >
+                  <div>
+                                    <button className="container__CardList__Button" onClick={() => this.props.deleteNote(this.props.note.id)} >
                                         <img alt='icon' className='container__CardList__Button_icon' src={del}/>
                                     </button>
-                                    <button className="container__CardList__Button" onClick={() => this.UpdateItem(item.id) }>
+                                    <button className="container__CardList__Button" onClick={() => this.UpdateItem(this.props.note.id) }>
                                         <img alt='icon' className='container__CardList__Button_icon' src={edit}/>
                                     </button>
                                 </div>
-                            </div>
-
-                    )
-                })
-                }
+              </div>
             </div>
         );
     }
