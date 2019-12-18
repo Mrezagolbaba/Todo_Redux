@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {deleteNote, editNote, updateNote} from "../util/Redux/actions";
 import del from'../assets/delete.svg'
 import edit from'../assets/pencil.svg'
+import EditNote from "./EditNote";
 class ListNote extends Component{
     constructor(props){
         super(props)
@@ -29,19 +30,7 @@ class ListNote extends Component{
                 {this.props.listNote.map((item)=>{
                     return(
                         item.editing?
-                            <div className="container__CardList" key={item.id} >
-                                <div>
-                                    <input className={'container__CardList__textEdit'} defaultValue={item.text} onChange={(e)=>this.updateInput(e,item.id)}/>
-                                </div>
-                                <div>
-                                    <button className="container__CardList__Button" onClick={() => this.props.deleteNote(item.id)} >
-                                        <img alt='icon' className='container__CardList__Button_icon' src={del}/>
-                                    </button>
-                                    <button className="container__CardList__Button" onClick={() => this.UpdateItem(item.id) }>
-                                        <img alt='icon' className='container__CardList__Button_icon' src={edit}/>
-                                    </button>
-                                </div>
-                            </div>
+                            <EditNote/>
                             :
                             <div className="container__CardList" key={item.id} >
                                 <div>
