@@ -30,7 +30,7 @@ class ListNote extends Component{
                 {this.props.listNote.map((item)=>{
                     return(
                         item.editing?
-                            <EditNote/>
+                            <EditNote note={item} key={item.id}/>
                             :
                             <div className="container__CardList" key={item.id} >
                                 <div>
