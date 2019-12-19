@@ -6,29 +6,11 @@ import del from'../assets/delete.svg'
 import edit from'../assets/pencil.svg'
 import EditNote from "./EditNote";
 class ListNote extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            isEditing: false
-        }
-
-    }
-    updateInput(e,id) {
-        this.setState({
-            noteText: e.target.value,
-            id:id
-        })
-    }
-    UpdateItem(id){
-        this.props.updateNote(this.state.noteText,this.state.id)
-        this.props.deleteNote(id)
-    }
 
     render() {
         return (
             <div className="container__row">
                 {this.props.listNote.map((item)=>{
-                    console.log(item)
                     return(
                         item.editing?
                             <EditNote note={item} key={item.id}/>
@@ -45,10 +27,7 @@ class ListNote extends Component{
                                         <img alt='icon' className='container__CardList__Button_icon' src={edit}/>
                                     </button>
                                 </div>
-                            </div>
-                    )
-                })
-                }
+                            </div>)})}
             </div>
         );
     }
@@ -63,8 +42,6 @@ const mapDispatchToProps = dispatch => {
         {
             deleteNote,
             editNote,
-            updateNote
-
         },
         dispatch
     );
