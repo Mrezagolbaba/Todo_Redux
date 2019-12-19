@@ -28,6 +28,7 @@ class ListNote extends Component{
         return (
             <div className="container__row">
                 {this.props.listNote.map((item)=>{
+                    console.log(item)
                     return(
                         item.editing?
                             <EditNote note={item} key={item.id}/>
