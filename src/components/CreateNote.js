@@ -4,32 +4,27 @@ import {connect} from "react-redux";
 import {addNote} from "../util/Redux/actions"
 
 class CreateNote extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            noteText: '',
+
+    handleSubmit =(e)=>{
+        e.preventDefault();
+        const text = this.getNote.value;
+        const data = {
+            id: new Date(),
+            text,
+            editing:false
         };
-        this.onChangeNoteText = this.onChangeNoteText.bind(this)
-        this.OnChangeButton = this.OnChangeButton.bind(this)
-    }
-
-    onChangeNoteText(e){
-        this.setState({
-            noteText: e.target.value
-        })
-    }
-    OnChangeButton(){
-        this.props.addNote(this.state.noteText);
-        this.refs.someName.value = '';
-    }
-
+        this.props.addNote(data);
+        this.getNote.value= ''
+    };
     render() {
         return (
             <div className="container__row">
-                <input className="container__col" onChange={this.onChangeNoteText} ref="someName"/>
-                <button className="addButton"  onClick={this.OnChangeButton }>
-                    <p className="textButton">Add Note</p>
-                </button>
+                <form onSubmit={this.handleSubmit}>
+                    <input className="container__col"  ref={(input)=>this.getNote = input} />
+                    <button className="addButton">
+                        <p className="textButton">Add Note</p>
+                    </button>
+                </form>
             </div>
         );
     }
