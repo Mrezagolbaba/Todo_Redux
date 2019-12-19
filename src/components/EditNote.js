@@ -27,7 +27,6 @@ class EditNote extends Component{
 
 
     render() {
-        console.log('note',this.props.note)
         return (
             <div className="container__row">
                 <form onSubmit={this.handleEdit}>
@@ -40,18 +39,12 @@ class EditNote extends Component{
                             <img alt='icon' className='container__CardList__Button_icon' src={edit}/>
                         </button>
                     </div>
-
                 </div>
                 </form>
             </div>
         );
     }
 }
-const mapStateToProps = state => {
-    return{
-        listNote:state.NOTEReducer
-    }
-};
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
@@ -61,5 +54,5 @@ const mapDispatchToProps = dispatch => {
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditNote);
+export default connect(null, mapDispatchToProps)(EditNote);
 
