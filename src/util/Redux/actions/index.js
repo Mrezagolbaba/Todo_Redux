@@ -6,10 +6,9 @@ import {
 
 let NOTEId = 2;
 
-export const addNote = text => ({
+export const addNote = data => ({
     type: ADD_NOTE,
-    id: NOTEId++,
-    text,
+    data
 });
 
 export const deleteNote = (id) => ({
@@ -20,8 +19,8 @@ export const editNote = (id) => ({
     type: EDIT_NOTE,
     id: id
 });
-export const updateNote = (text,id) => ({
+export const updateNote = (data,id) => ({
     type: UPDATE_NOTE,
-    id: id+4,
-    text
+    data,
+    id
 });
