@@ -19,6 +19,9 @@ $grid__bp-md: 768;
   &__col {
     flex-basis: (100) * 1%;
   }
+  &__Form{
+    width: 400px;
+  }
   .addButton{
     width: 80px;
     height: 30px;
@@ -45,6 +48,7 @@ $grid__bp-md: 768;
   }
   &__col {
     height: 30px;
+    width: 100%;
     background-color: $backgroundLight;
     margin: 10px 0;
     display: flex;
@@ -70,6 +74,12 @@ $grid__bp-md: 768;
     &__textEdit{
       color: $primary-color;
       padding:0 10px;
+      height: 30px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 5px;
     }
     &__Button{
       background-color: transparent;
