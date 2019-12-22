@@ -19,7 +19,7 @@ class CreateNote extends Component{
     render() {
         return (
             <div className="container__row">
-                <form onSubmit={this.handleSubmit} className={'container__Form'}>
+                <form onSubmit={this.handleSubmit}>
                     <input className="container__col"  ref={(input)=>this.getNote = input} />
                     <button className="addButton">
                         <p className="textButton">Add Note</p>
