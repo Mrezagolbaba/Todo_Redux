@@ -1,19 +1,13 @@
 import React,{Component} from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {deleteNote, editNote, updateNote} from "../util/Redux/actions";
-import del from'../assets/delete.svg'
+import {updateNote} from "../util/Redux/actions";
 import edit from'../assets/pencil.svg'
 
 
 class EditNote extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            isEditing: false
-        }
 
-    }
+
     handleEdit = (e) => {
         e.preventDefault();
         const newNote = this.getTitle.value;
