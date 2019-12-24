@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
+import {connect, } from "react-redux";
 import {addNote} from "../util/Redux/actions"
 
-class CreateNote extends Component{
+class   CreateNote extends Component{
 
     handleSubmit =(e)=>{
         e.preventDefault();
@@ -16,18 +16,21 @@ class CreateNote extends Component{
         this.props.addNote(data);
         this.getNote.value= ''
     };
-    render() {
-        return (
-            <div className="container__row">
-                <form onSubmit={this.handleSubmit}>
-                    <input className="container__col"  ref={(input)=>this.getNote = input} />
-                    <button className="addButton">
-                        <p className="textButton">Add Note</p>
-                    </button>
-                </form>
-            </div>
-        );
-    }
+render() {
+    return (
+        <div className="container__row">
+            <form onSubmit={this.handleSubmit}>
+                <input className="container__col"  ref={(input)=>this.getNote = input} />
+                <button className="addButton">
+                    <p className="textButton">Add Note</p>
+                </button>
+            </form>
+        </div>
+    );
+}
+
+
+
 }
 const mapStateToProps = state => {
     return{
